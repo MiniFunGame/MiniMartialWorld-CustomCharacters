@@ -1,6 +1,6 @@
 # MiniMartialWorld-CustomCharacters
 
-> 为《Mini Martial World》制作自定义角色 / 技能 / 事件 / 效果的入门模板。  
+> 为《Mini Martial World》制作自定义角色的入门模板。  
 > 标准流程：**在 `DLLBuilder` 编译出你的 `*.dll` → 放进 `ContentSample` 里作为示例包 → 上传到 Steam 创意工坊**。
 
 ---
@@ -16,11 +16,11 @@ MiniMartialWorld-CustomCharacters
 
 ---
 
-## TL;DR（一分钟上手）
+## （一分钟上手）
 
 1. 克隆仓库并用 Visual Studio / Rider 打开 `DLLBuilder`。  
 2. 把你的自定义代码（技能/事件/效果）放进 `DLLBuilder` 并 **Release 构建**。  
-3. 将生成的 `YourModName.dll` 复制到 `ContentSample/<你的包名>/`。  
+3. 将生成的 `.dll` 复制到 `ContentSample/<你的包名>/`。  
 4. 打开游戏的创意工坊发布器，选择上述文件夹上传即可。
 
 > 备注：如果你只想给别人一个“可直接订阅使用”的示例包，把 `.dll` + 预览图放在 `ContentSample` 的子文件夹里上传就好。
@@ -30,12 +30,6 @@ MiniMartialWorld-CustomCharacters
 ## 环境与要求
 
 - **开发工具**：Visual Studio 2022（或 Rider / VS Code + C# 扩展）。  
-- **目标框架**：.NET Framework 4.x（与 Unity 兼容；常用 4.7.2/4.8）。  
-- **平台**：C#，建议 AnyCPU / x64。  
-- **游戏**：已安装《Mini Martial World》。
-
-游戏启动时会加载外部 DLL，并通过反射扫描你实现的类（例如继承 `SkillFactory`、`Event`/`FightEvent`、`Effect` 的非抽象 `public` 类），把内容注入游戏。
-
 ---
 
 ## 创建你的第一个 Mod
@@ -181,25 +175,11 @@ public class AlleyThugEvent : FightEvent
 
 ---
 
-## 发布建议
-
-- 标题包含**核心玩法关键词**（如“护甲流”、“五毒”、“暴击流”）。  
-- 描述里给出**技能清单**与一句话效果说明。  
-- 在说明或创意工坊正文维护**版本号**（如 `v1.0.3`）。  
-- 预览图尽量明亮清晰，少文字多画面。
-
----
-
 ## 贡献
 
 欢迎 PR：补充更多模板、工具脚本与示例素材。  
 如果你在使用中遇到问题，也欢迎提 Issue 反馈。
 
----
-
-## 许可证
-
-请在仓库根目录添加或更新 `LICENSE` 文件；若未指定，视为示例用途。
 
 ---
 
