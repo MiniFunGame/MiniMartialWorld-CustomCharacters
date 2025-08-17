@@ -16,15 +16,13 @@ MiniMartialWorld-CustomCharacters
 
 ---
 
-## 上手
+## 步骤
 
 1. 克隆仓库并用 Visual Studio / Rider 打开 `DLLBuilder`。  
-2. 把你的自定义代码（技能/事件/效果）放进 `DLLBuilder` 并 **构建**。  
+2. 把你的自定义代码（角色/效果）放进 `DLLBuilder` 并 **构建**。  
 3. 将生成的 `.dll` 放到ContentSample/并删除原有的`.dll`。
 4. 参见资源替换教程，补全图片素材。
 5. 打开游戏的创意工坊发布器，选择上述文件夹上传即可。
-
-> 备注：如果你只想给别人一个“可直接订阅使用”的示例包，把 `.dll` 放在 `ContentSample` 的子文件夹里上传就好。
 
 ---
 
