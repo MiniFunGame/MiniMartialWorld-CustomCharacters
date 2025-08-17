@@ -28,6 +28,76 @@ MiniMartialWorld-CustomCharacters
 
 ---
 
+## 这是什么接口？
+
+```csharp
+public interface IWorkshopCharacterModifier
+{
+    List<Character> WorkShopModifyCharacters(List<Character> characters, string challengeCode);
+}
+```
+
+- **调用时机**：游戏加载你的 Workshop 内容时被调用。  
+- **输入**：`characters` 为当前候选角色列表；`challengeCode` 为挑战/模式代码（如“无尽模式/金塔”等）。  
+- **输出**：返回 **最终要生效** 的角色列表。你可以在里面**添加、删除或替换**角色。
+
+> 实现该接口的 `public`、**非抽象**类会被自动反射发现；无需手工注册。
+---
+
+---
+
+## 3. 示例：MyCharacterSpawnTweaks（可直接改名使用）
+
+> 功能：**非“一掷千金（Golden Tower）挑战”**时，增加一个自定义角色，并将其设置为玩家。还会给角色添加一个来自效果的“关键天赋”。
+
+```csharp
+using System.Collections.Generic;
+
+public class MyCharacterSpawnTweaks : IWorkshopCharacterModifier
+{
+    public List<Character> WorkShopModifyCharacters(List<Character> characters, string challengeCode)
+    {
+        // 仅在非“金塔挑战”下生效，避免影响该模式
+        if (challengeCode != GoldenTowerControl.GetChallengeModeName())
+        {
+            var me = BuildCustomPlayer();
+            characters.Add(me);
+        }
+        return characters;
+    }
+
+    private static Character BuildCustomPlayer()
+    {
+        var c = new Character();
+
+        // ====== 属性面板（可按需调整） ======
+        c.AttributePart.Charm         = 5.0f;
+        c.AttributePart.Strength      = 4.0f;
+        c.AttributePart.Physique      = 6.0f;
+        c.AttributePart.Speed         = 6.5f;
+        c.AttributePart.Comprehension = 5.0f;
+        c.AttributePart.Concentrate   = 4.0f;
+
+        // ====== 个人数据 ======
+        c.PersonalData.FamilyName = "测试";
+        c.PersonalData.SecondName = "人员";
+        c.PersonalData.Gender     = 1;  0表示女性1表示男性
+        c.PersonalData.SpriteName = c.PersonalData.GetFullName(); // 用全名做立绘/头像 Key（与资源匹配）
+
+        // ====== 玩家标记与唯一识别码 ======
+        c.Identifier = "CESHIRENYUAN";  // 建议全大写，唯一
+        Controller.GameData.Player = c; // 将该角色设置为“玩家”
+
+        // ====== 添加关键天赋（基于效果） ======
+        // HanZhangEffect 需在你的 DLL 中可用；若没有，请替换为你自己的 Effect 类
+        var keyTalent = new TalentFromEffect(new HanZhangEffect());
+        keyTalent.IsBuff = true;
+        TalentManager.AddTalent(keyTalent);
+
+        return c;
+    }
+}
+```
 ## 环境与要求
 
 - **开发工具**：Visual Studio 。  
