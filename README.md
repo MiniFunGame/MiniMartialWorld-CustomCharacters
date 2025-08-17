@@ -10,7 +10,7 @@
 ```
 MiniMartialWorld-CustomCharacters
 ├─ DLLBuilder/           # 你的 C# Mod 工程（编译成 .dll）
-├─ ContentSample/        # 打包示例（放置编译好的 .dll 与预览图）
+├─ ContentSample/        # 创意工坊示例（放置编译好的 .dll 与预览图）
 └─ README.md             # 本说明（你正在看）
 ```
 
@@ -23,7 +23,7 @@ MiniMartialWorld-CustomCharacters
 3. 将生成的 `.dll` 复制到 `ContentSample/<你的包名>/`。  
 4. 打开游戏的创意工坊发布器，选择上述文件夹上传即可。
 
-> 备注：如果你只想给别人一个“可直接订阅使用”的示例包，把 `.dll` + 预览图放在 `ContentSample` 的子文件夹里上传就好。
+> 备注：如果你只想给别人一个“可直接订阅使用”的示例包，把 `.dll` 放在 `ContentSample` 的子文件夹里上传就好。
 
 ---
 
