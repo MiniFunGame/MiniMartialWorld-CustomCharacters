@@ -16,7 +16,7 @@ MiniMartialWorld-CustomCharacters
 
 ---
 
-## （一分钟上手）
+## 上手
 
 1. 克隆仓库并用 Visual Studio / Rider 打开 `DLLBuilder`。  
 2. 把你的自定义代码（技能/事件/效果）放进 `DLLBuilder` 并 **构建**。  
@@ -57,7 +57,7 @@ public class MyCharacterSpawnTweaks : IWorkshopCharacterModifier
 {
     public List<Character> WorkShopModifyCharacters(List<Character> characters, string challengeCode)
     {
-        // 仅在非“金塔挑战”下生效，避免影响该模式
+        // 仅在非“一掷千金挑战”下生效，避免影响该模式
         if (challengeCode != GoldenTowerControl.GetChallengeModeName())
         {
             var me = BuildCustomPlayer();
@@ -97,10 +97,7 @@ public class MyCharacterSpawnTweaks : IWorkshopCharacterModifier
         return c;
     }
 }
-```
-## 环境与要求
 
-- **开发工具**：Visual Studio 。  
 
 
 ## 贡献
