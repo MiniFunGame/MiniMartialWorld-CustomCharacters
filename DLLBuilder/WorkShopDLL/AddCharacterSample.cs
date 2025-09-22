@@ -22,12 +22,12 @@ public class MyCharacterSpawnTweaks : IWorkshopCharacterModifier
         // 创建角色对象
         Character character = new Character();
 
-        character.AttributePart.Charm = 5.0f; // 高魅力，符合唐梦璃的特性
-        character.AttributePart.Strength = 4.0f;
-        character.AttributePart.Physique = 6.0f;
-        character.AttributePart.Speed = 6.5f;
-        character.AttributePart.Comprehension = 5.0f;
-        character.AttributePart.Concentrate = 4.0f;
+        character.AttributePart.Charm = 99.0f; // 高魅力，符合唐梦璃的特性
+        character.AttributePart.Strength = 99.0f;
+        character.AttributePart.Physique = 99.0f;
+        character.AttributePart.Speed = 99.0f;
+        character.AttributePart.Comprehension = 99.0f;
+        character.AttributePart.Concentrate = 99.0f;
 
         // 设置角色个人数据
         character.PersonalData.FamilyName = "测试";
@@ -48,4 +48,5 @@ public class MyCharacterSpawnTweaks : IWorkshopCharacterModifier
     }
 
 }
+
 
